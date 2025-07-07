@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:29:50 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 13:33:12 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:21:59 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	run_sort(t_stack **a, t_stack **b)
 		radix(a, b);
 }
 
-void	print_stack(t_stack *stack)
+/* void	print_stack(t_stack *stack)
 {
 	int i = 0;
 	while (stack)
@@ -88,7 +88,7 @@ void	print_stack(t_stack *stack)
 		stack = stack->next;
 		i++;
 	}
-}
+} */
 
 int	main(int argc, char **argv)
 {
@@ -107,7 +107,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	run_sort(&a, &b);
-	print_stack(a);
+	//print_stack(a);
 	free_all(&a, &b);
 	return (0);
 }
