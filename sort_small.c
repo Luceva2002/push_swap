@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:00:17 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/06 22:58:46 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:06:25 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	sort_three(t_stack **a)
 	if ((*a)->next->data[0] > (*a)->next->next->data[0])
 	{
 		rotate(a);
-		write(1, "ra\n", 3);
 		if ((*a)->data[0] > (*a)->next->data[0])
 			swap(a);
 	}

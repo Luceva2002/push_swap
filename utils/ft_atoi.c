@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:39:09 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 11:42:46 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/07 11:46:37 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - '0');
-		if ((sign == 1 && res > INT_MAX) || (sign == -1) && (-res < INT_MIN))
+		if ((sign == 1 && res > INT_MAX) || ((sign == -1) && (-res < INT_MIN)))
 			return (0);
 		i++;
 	}
