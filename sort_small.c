@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:00:17 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 12:32:31 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:40:36 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,25 @@ void	sort_two(t_stack **a)
 
 void	sort_three(t_stack **a)
 {
-	if ((*a)->data[0] > (*a)->next->data[0]
-		&& (*a)->data[0] > (*a)->next->next->data[0])
-		swap_a(a);
-	if ((*a)->next->data[0] > (*a)->next->next->data[0])
+	if ((*a)->data > (*a)->next->data && (*a)->next->data < (*a)->next->next->data && (*a)->data < (*a)->next->next->data)
 	{
-		rotate_a(a);
-		if ((*a)->data[0] > (*a)->next->data[0])
-			swap_a(a);
+		write(1, "cojone", 6);
+		swap_a(a);
 	}
+	else if ((*a)->data > (*a)->next->data && (*a)->next->data > (*a)->next->next->data)
+	{
+		swap_a(a);
+		reverse_rotate_a(a);
+	}
+	else if ((*a)->data > (*a)->next->data && (*a)->next->data < (*a)->next->next->data && (*a)->data > (*a)->next->next->data)
+		rotate_a(a);
+	else if ((*a)->data < (*a)->next->data && (*a)->next->data > (*a)->next->next->data && (*a)->data < (*a)->next->next->data)
+	{
+		swap_a(a);
+		rotate_a(a);
+	}
+	else if ((*a)->data < (*a)->next->data && (*a)->next->data > (*a)->next->next->data && (*a)->data > (*a)->next->next->data)
+		reverse_rotate_a(a);
 }
 
 void	sort_four(t_stack **a, t_stack **b)

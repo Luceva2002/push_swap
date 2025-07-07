@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:29:50 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 12:11:30 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:33:12 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,20 @@ static void	run_sort(t_stack **a, t_stack **b)
 		radix(a, b);
 }
 
+void	print_stack(t_stack *stack)
+{
+	int i = 0;
+	while (stack)
+	{
+		if (stack->data)
+			printf("Node %d: data = %d, index = %d\n", i, *(stack->data), stack->index);
+		else
+			printf("Node %d: data = (null), index = %d\n", i, stack->index);
+		stack = stack->next;
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -93,6 +107,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	run_sort(&a, &b);
+	print_stack(a);
 	free_all(&a, &b);
 	return (0);
 }

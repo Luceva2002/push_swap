@@ -6,13 +6,13 @@
 #    By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 19:30:00 by luevange          #+#    #+#              #
-#    Updated: 2025/07/06 23:08:58 by luevange         ###   ########.fr        #
+#    Updated: 2025/07/07 13:40:54 by luevange         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 
 SRCDIR = .
