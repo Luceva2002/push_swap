@@ -59,11 +59,11 @@ void				sort_three(t_stack **a);
 void				sort_four(t_stack **a, t_stack **b);
 void				sort_five(t_stack **a, t_stack **b);
 void				sort_small(t_stack **a, t_stack **b);
-int	                get_stack_size(t_stack *a);
+int					get_stack_size(t_stack *a);
 void				radix_sort(t_stack **a, t_stack **b, int max_bits);
 void				radix(t_stack **a, t_stack **b);
 int					get_stack_size(t_stack *stack);
-int 				get_max_bits(t_stack *a);
+int					get_max_bits(t_stack *a);
 int					is_sorted(t_stack *a);
 int					has_duplicates(t_stack *stack);
 
