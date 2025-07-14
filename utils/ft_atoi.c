@@ -6,18 +6,25 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:39:09 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 13:55:59 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:24:29 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <limits.h>
 
-int	ft_atoi(const char *str)
+void	free_atoi(int *val)
 {
-	int	i;
-	int	sign;
-	int	res;
+	free(val);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+int	ft_atoi(const char *str, int *val)
+{
+	int				i;
+	long long int	sign;
+	long long int	res;
 
 	i = 0;
 	sign = 1;
@@ -34,7 +41,7 @@ int	ft_atoi(const char *str)
 	{
 		res = res * 10 + (str[i] - '0');
 		if ((sign == 1 && res > INT_MAX) || ((sign == -1) && (-res < INT_MIN)))
-			return (0);
+			free_atoi(val);
 		i++;
 	}
 	return (sign * res);

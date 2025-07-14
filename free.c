@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 16:59:40 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/06 18:53:04 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:34:27 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_stack(t_stack **stack)
 
 void	free_all(t_stack **a, t_stack **b)
 {
+	
 	free_stack(a);
 	free_stack(b);
 }

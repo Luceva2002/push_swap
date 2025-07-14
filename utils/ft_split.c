@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:50:43 by luevange          #+#    #+#             */
-/*   Updated: 2025/06/20 16:03:35 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:08:00 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ int	charcount(char const *str, char c, int i)
 	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c, int k)
 {
 	int		i;
-	int		k;
 	char	**temp;
 
-	k = 0;
 	i = 0;
 	temp = malloc(sizeof(char *) * (count_word(s, c) + 1));
 	while (s[i])

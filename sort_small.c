@@ -20,21 +20,30 @@ void	sort_two(t_stack **a)
 
 void	sort_three(t_stack **a)
 {
-	if ((*a)->data[0] > (*a)->next->data[0] && (*a)->next->data[0] < (*a)->next->next->data[0] && (*a)->data[0] < (*a)->next->next->data[0])
+	if ((*a)->data[0] > (*a)->next->data[0]
+		&& (*a)->next->data[0] < (*a)->next->next->data[0]
+		&& (*a)->data[0] < (*a)->next->next->data[0])
 		swap_a(a);
-	else if ((*a)->data[0] > (*a)->next->data[0] && (*a)->next->data[0] > (*a)->next->next->data[0])
+	else if ((*a)->data[0] > (*a)->next->data[0]
+		&& (*a)->next->data[0] > (*a)->next->next->data[0])
 	{
 		swap_a(a);
 		reverse_rotate_a(a);
 	}
-	else if ((*a)->data[0] > (*a)->next->data[0] && (*a)->next->data[0] < (*a)->next->next->data[0] && (*a)->data[0] > (*a)->next->next->data[0])
+	else if ((*a)->data[0] > (*a)->next->data[0]
+		&& (*a)->next->data[0] < (*a)->next->next->data[0]
+		&& (*a)->data[0] > (*a)->next->next->data[0])
 		rotate_a(a);
-	else if ((*a)->data[0] < (*a)->next->data[0] && (*a)->next->data[0] > (*a)->next->next->data[0] && (*a)->data[0] < (*a)->next->next->data[0])
+	else if ((*a)->data[0] < (*a)->next->data[0]
+		&& (*a)->next->data[0] > (*a)->next->next->data[0]
+		&& (*a)->data[0] < (*a)->next->next->data[0])
 	{
 		swap_a(a);
 		rotate_a(a);
 	}
-	else if ((*a)->data[0] < (*a)->next->data[0] && (*a)->next->data[0] > (*a)->next->next->data[0] && (*a)->data[0] > (*a)->next->next->data[0])
+	else if ((*a)->data[0] < (*a)->next->data[0]
+		&& (*a)->next->data[0] > (*a)->next->next->data[0]
+		&& (*a)->data[0] > (*a)->next->next->data[0])
 		reverse_rotate_a(a);
 }
 
@@ -49,10 +58,10 @@ void	sort_four(t_stack **a, t_stack **b)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int pushed;
-	
+	int	pushed;
+
 	pushed = 0;
-	while(pushed < 2)
+	while (pushed < 2)
 	{
 		if ((*a)->index == 0 || (*a)->index == 1)
 		{

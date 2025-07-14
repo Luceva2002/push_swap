@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:29:50 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 14:21:59 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:37:59 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*create_node(int *data)
 	return (new_node);
 }
 
-void	fill_stack(t_stack **stack, char **values)
+int	fill_stack(t_stack **stack, char **values)
 {
 	int		i;
 	int		*val;
@@ -37,8 +37,16 @@ void	fill_stack(t_stack **stack, char **values)
 	{
 		val = malloc(sizeof(int));
 		if (!val)
-			return ;
-		*val = ft_atoi(values[i]);
+		{
+			printf("Error malloc\n");
+			return free(val), 1;
+		}
+		if (ft_isdigit(values[i]) == 0)
+		{
+			ft_putstr_fd("Error not number\n", 2);
+			return free(val), 1;
+		}
+		*val = ft_atoi(values[i], val);
 		node = create_node(val);
 		if (!*stack)
 			*stack = node;
@@ -51,19 +59,43 @@ void	fill_stack(t_stack **stack, char **values)
 		}
 		i++;
 	}
+	return 0;
 }
 
 static int	init_and_parse(int argc, char **argv, t_stack **a, char ***values)
 {
+	int	k;
+
+	k = 0;
 	if (argc < 2)
+		return (1);
+	if (argc == 2)
+	{
+		*values = ft_split(argv[1], ' ', k);
+		*a = NULL;
+		if (fill_stack(a, *values) != 0)
+		{
+			free_values(*values);
+			return (1);
+		}
+		if (!*a)
+		{
+			free_values(*values);
+			return (1);
+		}
+		free_values(*values);
+		index_stack(a);
+		k++;
 		return (0);
+	}
 	*values = argv + 1;
 	*a = NULL;
-	fill_stack(a, *values);
+	if (fill_stack(a, *values))
+		return printf("Error fill stack 2\n"),(1);
 	if (!*a)
-		return (0);
+		return (1);
 	index_stack(a);
-	return (1);
+	return (0);
 }
 
 static void	run_sort(t_stack **a, t_stack **b)
@@ -76,38 +108,43 @@ static void	run_sort(t_stack **a, t_stack **b)
 		radix(a, b);
 }
 
-/* void	print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-	int i = 0;
+	int		i;
+
+	i = 0;
 	while (stack)
 	{
 		if (stack->data)
-			printf("Node %d: data = %d, index = %d\n", i, *(stack->data), stack->index);
+			printf("Node %d: data = %d, index = %d\n", i, *(stack->data),
+				stack->index);
 		else
 			printf("Node %d: data = (null), index = %d\n", i, stack->index);
 		stack = stack->next;
 		i++;
 	}
-} */
-
+}
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	**values;
-
+	
 	a = NULL;
 	b = NULL;
-	if (!init_and_parse(argc, argv, &a, &values))
+	if (init_and_parse(argc, argv, &a, &values) == 1)
+	{
+		printf("exited init_parse\n");
 		return (1);
+	}
 	if (has_duplicates(a))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_all(&a, &b);
 		return (1);
 	}
-	run_sort(&a, &b);
-	//print_stack(a);
+	run_sort(&a, &b); 
+	print_stack(a);
 	free_all(&a, &b);
 	return (0);
 }

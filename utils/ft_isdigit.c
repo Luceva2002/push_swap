@@ -6,16 +6,29 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:35:52 by luevange          #+#    #+#             */
-/*   Updated: 2025/06/20 16:02:46 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:15:30 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_isdigit(int i)
+int	ft_isdigit(char *str)
 {
-	if (i >= '0' && i <= '9')
-		return (1);
-	else
-		return (0);
+	int i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		i++;
+		if (str[i] == '\0')
+			return (0);
+	}
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+
+	return (1);
 }

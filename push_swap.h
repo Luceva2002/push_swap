@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 18:57:34 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/06 23:15:20 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:24:37 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ typedef struct s_stack
 }					t_stack;
 
 t_stack				*create_node(int *data);
-void				fill_stack(t_stack **stack, char **values);
+void				print_stack(t_stack *stack);
+int					fill_stack(t_stack **stack, char **values);
 void				index_stack(t_stack **stack);
 void				free_stack(t_stack **stack);
 void				free_all(t_stack **a, t_stack **b);
 void				free_values(char **values);
-int					ft_atoi(const char *str);
-int					ft_isdigit(int i);
+int					ft_atoi(const char *str, int *val);
+int					ft_isdigit(char *str);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *s1);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char const *s, char c, int k);
 void				ft_putstr_fd(char *s, int fd);
 void				push(t_stack **src, t_stack **dest);
 void				push_a(t_stack **a, t_stack **b);
