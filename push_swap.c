@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:29:50 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 18:01:31 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:24:09 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	init_and_parse(int argc, char **argv, t_stack **a, char ***values)
 	*values = argv + 1;
 	*a = NULL;
 	if (fill_stack(a, *values))
-		return (printf("Error fill stack 2\n"), (1));
+		return (ft_putstr_fd("Error\n", 2), (1));
 	if (!*a)
 		return (1);
 	return (index_stack(a), 0);
@@ -50,37 +50,9 @@ static void	run_sort(t_stack **a, t_stack **b)
 	else
 		radix(a, b);
 }
-
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-	char	**values;
-
-	a = NULL;
-	b = NULL;
-	if (init_and_parse(argc, argv, &a, &values) == 1)
-	{
-		printf("exited init_parse\n");
-		return (1);
-	}
-	if (has_duplicates(a))
-	{
-		ft_putstr_fd("Error\n", 2);
-		free_all(&a, &b);
-		return (1);
-	}
-	run_sort(&a, &b);
-	free_all(&a, &b);
-	return (0);
-}
-
-/* void	print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
 	int		i;
-	t_stack	*a;
-	t_stack	*b;
-	char	**values;
 
 	i = 0;
 	while (stack)
@@ -93,7 +65,33 @@ int	main(int argc, char **argv)
 		stack = stack->next;
 		i++;
 	}
-} */
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+	char	**values;
+
+	a = NULL;
+	b = NULL;
+	if (init_and_parse(argc, argv, &a, &values) == 1)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	if (has_duplicates(a))
+	{
+		ft_putstr_fd("Error\n", 2);
+		free_all(&a, &b);
+		return (1);
+	}
+	run_sort(&a, &b);
+	print_stack(a);
+	free_all(&a, &b);
+	return (0);
+}
+
 
 /* int	fill_stack(t_stack **stack, char **values)
 {

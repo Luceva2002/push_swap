@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:00:17 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/07 14:27:25 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:30:33 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,16 @@ void	sort_four(t_stack **a, t_stack **b)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int	pushed;
-
-	pushed = 0;
-	while (pushed < 2)
-	{
-		if ((*a)->index == 0 || (*a)->index == 1)
-		{
-			push_b(a, b);
-			pushed++;
-		}
-		else
-			rotate_a(a);
-	}
+	while ((*a)->index != 0)
+		rotate_a(a);
+	push_b(a, b);
+	while ((*a)->index != 1)
+		rotate_a(a);
+	push_b(a, b);
 	sort_three(a);
-	if ((*b)->index == (*b)->next->index)
-		swap_b(b);
 	push_a(a, b);
 	push_a(a, b);
 }
-
 void	sort_small(t_stack **a, t_stack **b)
 {
 	int	size;

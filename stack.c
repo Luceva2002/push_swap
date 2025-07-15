@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:59:12 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 18:02:08 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:00:40 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	process_value(t_stack **stack, char *value)
 
 	val = malloc(sizeof(int));
 	if (!val)
-		return (printf("Error malloc\n"), 1);
+		return (ft_putstr_fd("Error\n", 2), 1);
 	if (ft_isdigit(value) == 0)
-		return (ft_putstr_fd("Error not number\n", 2),
+		return (ft_putstr_fd("Error\n", 2),
 			free_stack(stack), free(val), 1);
 	*val = ft_atoi(value, val);
 	node = create_node(val);
