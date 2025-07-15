@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 14:29:50 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/11 17:37:59 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:23:15 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ static int	init_and_parse(int argc, char **argv, t_stack **a, char ***values)
 		k++;
 		return (0);
 	}
+	else
 	*values = argv + 1;
 	*a = NULL;
 	if (fill_stack(a, *values))
@@ -124,6 +125,7 @@ void	print_stack(t_stack *stack)
 		i++;
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;

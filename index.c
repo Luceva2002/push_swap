@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 22:39:54 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/10 15:20:12 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:38:21 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	index_stack(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*cmp;
-	int		index;
+	int		;
 
 	current = *stack;
 	while (current)
