@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:35:52 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/10 15:15:30 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:42:29 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -29,6 +29,5 @@ int	ft_isdigit(char *str)
 			return (0);
 		i++;
 	}
-
 	return (1);
 }

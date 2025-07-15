@@ -6,7 +6,7 @@
 #    By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 19:30:00 by luevange          #+#    #+#              #
-#    Updated: 2025/07/07 13:40:54 by luevange         ###   ########.fr        #
+#    Updated: 2025/07/15 18:04:43 by luevange         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = \
 	$(SRCDIR)/sort_small.c \
 	$(SRCDIR)/free.c \
 	$(SRCDIR)/edge_cases.c \
+	$(SRCDIR)/stack.c \
 	$(UTILSDIR)/ft_atoi.c \
 	$(UTILSDIR)/ft_isdigit.c \
 	$(UTILSDIR)/ft_split.c \

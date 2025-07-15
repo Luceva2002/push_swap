@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 18:57:34 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/11 17:24:37 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:03:21 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void				sort_small(t_stack **a, t_stack **b);
 int					get_stack_size(t_stack *a);
 void				radix_sort(t_stack **a, t_stack **b, int max_bits);
 void				radix(t_stack **a, t_stack **b);
+int					process_value(t_stack **stack, char *value);
 int					get_stack_size(t_stack *stack);
 int					get_max_bits(t_stack *a);
 int					is_sorted(t_stack *a);
