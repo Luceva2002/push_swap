@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:00:17 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 19:30:33 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/15 20:14:16 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,28 @@ void	sort_two(t_stack **a)
 
 void	sort_three(t_stack **a)
 {
-	if ((*a)->data[0] > (*a)->next->data[0]
-		&& (*a)->next->data[0] < (*a)->next->next->data[0]
-		&& (*a)->data[0] < (*a)->next->next->data[0])
+	int	top;
+	int	mid;
+	int	bot;
+
+	top = (*a)->index;
+	mid = (*a)->next->index;
+	bot = (*a)->next->next->index;
+	if (top > mid && mid < bot && top < bot)
 		swap_a(a);
-	else if ((*a)->data[0] > (*a)->next->data[0]
-		&& (*a)->next->data[0] > (*a)->next->next->data[0])
+	else if (top > mid && mid > bot)
 	{
 		swap_a(a);
 		reverse_rotate_a(a);
 	}
-	else if ((*a)->data[0] > (*a)->next->data[0]
-		&& (*a)->next->data[0] < (*a)->next->next->data[0]
-		&& (*a)->data[0] > (*a)->next->next->data[0])
+	else if (top > mid && mid < bot && top > bot)
 		rotate_a(a);
-	else if ((*a)->data[0] < (*a)->next->data[0]
-		&& (*a)->next->data[0] > (*a)->next->next->data[0]
-		&& (*a)->data[0] < (*a)->next->next->data[0])
+	else if (top < mid && mid > bot && top < bot)
 	{
 		swap_a(a);
 		rotate_a(a);
 	}
-	else if ((*a)->data[0] < (*a)->next->data[0]
-		&& (*a)->next->data[0] > (*a)->next->next->data[0]
-		&& (*a)->data[0] > (*a)->next->next->data[0])
+	else if (top < mid && mid > bot && top > bot)
 		reverse_rotate_a(a);
 }
 
@@ -68,6 +66,7 @@ void	sort_five(t_stack **a, t_stack **b)
 	push_a(a, b);
 	push_a(a, b);
 }
+
 void	sort_small(t_stack **a, t_stack **b)
 {
 	int	size;
