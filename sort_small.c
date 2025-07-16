@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 17:00:17 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 20:14:16 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:32:15 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,31 @@
 void	sort_two(t_stack **a)
 {
 	if ((*a)->data[0] > (*a)->next->data[0])
-		swap_a(a);
+	swap_a(a);
 }
 
 void	sort_three(t_stack **a)
 {
-	int	top;
-	int	mid;
-	int	bot;
+	int first = (*a)->index;
+	int second = (*a)->next->index;
+	int third = (*a)->next->next->index;
 
-	top = (*a)->index;
-	mid = (*a)->next->index;
-	bot = (*a)->next->next->index;
-	if (top > mid && mid < bot && top < bot)
+	if (first > second && second < third && first < third)
 		swap_a(a);
-	else if (top > mid && mid > bot)
+	else if (first > second && second > third)
 	{
 		swap_a(a);
 		reverse_rotate_a(a);
 	}
-	else if (top > mid && mid < bot && top > bot)
+	else if (first > third && second < third)
 		rotate_a(a);
-	else if (top < mid && mid > bot && top < bot)
+	else if (first < second && first > third)
+		reverse_rotate_a(a);
+	else if (first < third && second > third)
 	{
 		swap_a(a);
 		rotate_a(a);
 	}
-	else if (top < mid && mid > bot && top > bot)
-		reverse_rotate_a(a);
 }
 
 void	sort_four(t_stack **a, t_stack **b)
@@ -54,7 +51,7 @@ void	sort_four(t_stack **a, t_stack **b)
 	push_a(a, b);
 }
 
-void	sort_five(t_stack **a, t_stack **b)
+/* void	sort_five(t_stack **a, t_stack **b)
 {
 	while ((*a)->index != 0)
 		rotate_a(a);
@@ -62,6 +59,19 @@ void	sort_five(t_stack **a, t_stack **b)
 	while ((*a)->index != 1)
 		rotate_a(a);
 	push_b(a, b);
+	sort_three(a);
+	push_a(a, b);
+	push_a(a, b);
+} */
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	move_min_top(a, 0);
+	push_b(a, b);
+	move_min_top(a, 1);
+	push_b(a, b);
+	if ((*b)->index < (*b)->next->index)
+		swap_b(b);
 	sort_three(a);
 	push_a(a, b);
 	push_a(a, b);

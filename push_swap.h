@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 18:57:34 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 18:03:21 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:29:45 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void				sort_three(t_stack **a);
 void				sort_four(t_stack **a, t_stack **b);
 void				sort_five(t_stack **a, t_stack **b);
 void				sort_small(t_stack **a, t_stack **b);
+void				move_min_top(t_stack **a, int min_index);
+int					get_min_pos(t_stack *a, int min_index);	
 int					get_stack_size(t_stack *a);
 void				radix_sort(t_stack **a, t_stack **b, int max_bits);
 void				radix(t_stack **a, t_stack **b);

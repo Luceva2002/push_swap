@@ -6,7 +6,7 @@
 /*   By: luevange <luevange@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 17:59:12 by luevange          #+#    #+#             */
-/*   Updated: 2025/07/15 19:00:40 by luevange         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:30:25 by luevange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,31 @@ int	fill_stack(t_stack **stack, char **values)
 		i++;
 	}
 	return (0);
+}
+
+int		get_min_pos(t_stack *a, int min_index)
+{
+	int pos = 0;
+
+	while (a)
+	{
+		if (a->index == min_index)
+			break ;
+		pos++;
+		a = a->next;
+	}
+	return pos;
+}
+
+void	move_min_top(t_stack **a, int min_index)
+{
+	int pos = get_min_pos(*a, min_index);
+	int size = get_stack_size(*a);
+
+	if (pos <= size / 2)
+		while (pos--)
+			rotate_a(a);
+	else
+		while (pos++ < size)
+			reverse_rotate_a(a);
 }
